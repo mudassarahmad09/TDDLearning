@@ -22,6 +22,7 @@
 		4CCF44142706844A00DD29AB /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF44132706844A00DD29AB /* DataModel.swift */; };
 		4CCF44162706846400DD29AB /* Nessie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF44152706846400DD29AB /* Nessie.swift */; };
 		4CCF44182706849B00DD29AB /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF44172706849B00DD29AB /* AppError.swift */; };
+		EF740A4428F454C9000A0D96 /* DataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF740A4328F454C9000A0D96 /* DataModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		4CCF44132706844A00DD29AB /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		4CCF44152706846400DD29AB /* Nessie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nessie.swift; sourceTree = "<group>"; };
 		4CCF44172706849B00DD29AB /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		EF740A4328F454C9000A0D96 /* DataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				4CCF441027052FA500DD29AB /* App Model */,
-				4CCF441A2706879400DD29AB /* Data Model */,
+				EF740A4228F45455000A0D96 /* Data Model */,
 				4CCF441127052FAC00DD29AB /* UI Layer */,
 			);
 			path = Cases;
@@ -188,9 +190,10 @@
 			path = "Data Model";
 			sourceTree = "<group>";
 		};
-		4CCF441A2706879400DD29AB /* Data Model */ = {
+		EF740A4228F45455000A0D96 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				EF740A4328F454C9000A0D96 /* DataModelTests.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF740A4428F454C9000A0D96 /* DataModelTests.swift in Sources */,
 				4CCF440E27052F8000DD29AB /* StepCountControllerTests.swift in Sources */,
 				4CCF440C2705284300DD29AB /* AppModelTests.swift in Sources */,
 			);
