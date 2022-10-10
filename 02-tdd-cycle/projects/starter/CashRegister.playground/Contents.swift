@@ -4,7 +4,8 @@ class CashRegister{
     
     var availableFunds: Decimal
     var transactionTotal: Decimal = 0
-    var cashAccpet: Bool = false
+    
+    
     init(availableFunds: Decimal){
         self.availableFunds = availableFunds
     }
@@ -14,7 +15,8 @@ class CashRegister{
     }
     
     func acceptCashPayment(_ cash:Decimal){
-        cashAccpet = cash > 0 ?  true : false
+        transactionTotal -= cash
+        availableFunds += cash
     }
 }
 
@@ -23,6 +25,7 @@ class CashRegister{
 class CashRegisterTests:XCTestCase{
     var availableFunds: Decimal!
     var itemCost: Decimal!
+    var payment: Decimal!
     var sut: CashRegister!
     
     
@@ -30,6 +33,7 @@ class CashRegisterTests:XCTestCase{
         super.setUp()
         availableFunds = 100
         itemCost = 42
+        payment = 40.00
         sut = CashRegister(availableFunds: availableFunds)
     }
     
@@ -68,16 +72,33 @@ class CashRegisterTests:XCTestCase{
         XCTAssertEqual(sut.transactionTotal, expectedTotal)
         
     }
-    func testCashPayment_whenpaymentIsGraterThanZero(){
-        let payment = Decimal(100)
-        sut.acceptCashPayment(payment)
-        XCTAssertTrue(sut.cashAccpet)
+
+    func testAcceptCashPayment_subtractsPaymentFromTransactionTotal() {
+      // given
+        paymentInProgress()
+      let expected = sut.transactionTotal - payment
+      
+      // when
+      sut.acceptCashPayment(payment)
+      
+      // then
+      XCTAssertEqual(sut.transactionTotal, expected)
     }
     
-    func testCashPayment_whenPaymentIsZero(){
-        let payment = Decimal(0)
-        sut.acceptCashPayment(payment)
-        XCTAssertFalse(sut.cashAccpet)
+    func testAcceptCashPayment_addsPaymentToAvailableFunds() {
+      // given
+        paymentInProgress()
+      let expected = sut.availableFunds + payment
+      
+      // when
+      sut.acceptCashPayment(payment)
+      
+      // then
+      XCTAssertEqual(sut.availableFunds, expected)
+    }
+    func paymentInProgress(){
+        sut.addItem(45)
+        sut.addItem(75)
     }
 }
 
