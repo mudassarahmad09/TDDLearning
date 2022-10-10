@@ -28,7 +28,7 @@ final class SetCountControllerTest: XCTestCase {
   
   func testSetCountController_whenStartTaped_appsInProgess(){
     
-    sut.startStopPause(nil)
+    whenStartStopPauseCalled()
     
     let observer = AppModel.instance.appState
     
@@ -36,9 +36,14 @@ final class SetCountControllerTest: XCTestCase {
   }
   
   func testSetCountController_whenStartTaped_buttonLabelIsPause(){
-    sut.startStopPause(nil)
+    whenStartStopPauseCalled()
     
     let text = AppModel.instance.appState.nextStateButtonLabel
     XCTAssertEqual(text, AppState.inProgress.nextStateButtonLabel)
+  }
+  
+  // MARK: - When
+  private func whenStartStopPauseCalled() {
+    sut.startStopPause(nil)
   }
 }
