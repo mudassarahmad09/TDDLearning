@@ -82,4 +82,5 @@ class StepCountControllerTests: XCTestCase {
     let text = sut.startButton.title(for: .normal)
     XCTAssertEqual(text, AppState.inProgress.nextStateButtonLabel)
   }
+  
 }
